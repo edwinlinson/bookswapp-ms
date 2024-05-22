@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+      - id: user-route
+        uri:
+          ${USER_SERVICE_URI:http://localhost:8080}
+        predicates:
+        - Path=/auth/**
+            
+server:
+  port: 8008            

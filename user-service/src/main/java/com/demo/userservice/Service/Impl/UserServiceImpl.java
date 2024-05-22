@@ -17,6 +17,8 @@ import java.util.UUID;
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
+	
+	
     private final UserRepo userRepo;
     private final PasswordEncoder passwordEncoder;
 
@@ -131,5 +133,19 @@ public class UserServiceImpl implements UserService {
         }
         return true;
     }
+
+
+	@Override
+	public User findByEmail(String email) {
+		User user = userRepo.findByEmail(email);
+		return user;
+	}
+
+
+	@Override
+	public User findByUserName(String username) {
+		User user = userRepo.findUserByUsername(username);
+		return user;
+	}
 
 }

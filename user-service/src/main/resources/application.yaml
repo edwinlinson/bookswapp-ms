@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: user-service
+  profiles:
+    active: "git"
+  config:
+    import: "optional:configserver:http://localhost:8888"  
+      
+      
+#    import:
+#      - configserver: 
+#        uri: http://localhost:8888
+      
+      
+#  datasource:
+#    name: db
+#    url: jdbc:postgresql://localhost:5432/secondproject
+#    username: postgres
+#    password: password
+#    driver-class-name: org.postgresql.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    generate-ddl: true
+#  thymeleaf:
+#    mode: DEVELOPMENT
+#  batch:
+#    jdbc:
+#      initialize-schema: always
+#  cloud:
+#    config:
+#      enabled: false
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: bookswapproject@gmail.com
+#    password: nuxsamoaezknozlq
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka

@@ -21,7 +21,7 @@ public class JwtService {
         this.userRepo = userRepo;
     }
 
-    private String jwtSecret = "3b54477744fe2a57d708a79333877c40e9ffe9d5337b803f91e722bee5dd71e2202cb5f6bda7b988ebe32c7ced69d97a3d72e2229634490ddccd5e349e1d3c5b0a8e36afcaf7a0abe2c26155958234c10079a171206dcaca178706a716204d041bdeea020371db6cd45468bb231e7d7936e2b24d459cc7f13b55c1815006055587779ebefb72a539a08d87568d5316dec0db23da3f7db66699595e9b57de6da3f4ce31d403e84258f364772e16a84d8da871b6b7079e0da94caa6f030aaa91e0330d0744eac14afcc070fa1d28e324017c04942fb8e3dae3b8ce853e5fa354bf0edac5f77fbf9c77b550fa4feeb313cf233b1fab79d2c70d05ec4bf0ccb24211";
+    private String jwtSecret = System.getenv("JWT_SECRET");
 
     private Long jwtExpiration = 360000L;
     public String generateToken(Authentication authentication){

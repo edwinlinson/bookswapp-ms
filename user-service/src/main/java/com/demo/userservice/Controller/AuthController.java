@@ -122,19 +122,26 @@ public class AuthController {
                             .build()
             );
         }
+        System.out.println(" "+username);
+        User user = userService.findByUserName(username);
         return ResponseEntity.ok(
                 LoginResponse.builder()
                         .message("Authentication Successful!")
                         .accessToken(token)
+                        .user(user)
                         .build()
         );
+
     }
     @PostMapping("/generateOTPF")
     public String genOTPF(@RequestBody String email) {
-    	System.out.println("In generat eF method");
+    	System.out.println("In generate method");
     	String otp = generateOTP();
     	emailSenderService.sendEmail(email, "Otp for Bookswapp app", "Your OTP is: " + otp+ "   Please donot this  share with anyone. ");
-    	return otp;
+    	OtpDto otpdto = new OtpDto();
+    	otpdto.setEmail(email);
+    	otpdto.setOtp(otp);
+    	return "generate over";
     }
     
     @PostMapping("/generateOTP")
